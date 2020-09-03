@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ryan&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Ryan&#39;s Blog">
+  <title>Long polling, WebSockets, and Server-Sent Events | Ryan&#39;s Blog</title>
+  <meta name="keywords" content=" System Design ">
+  <meta name="description" content="Long polling, WebSockets, and Server-Sent Events | Ryan&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hi, welcome to my blog!">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -199,12 +199,58 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-Long-polling-WebSockets-and-Server-Sent-Events" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcom"><span class="toc-text">Welcom</span></a></li></ol>
+        <h1 class="article-title">Long polling, WebSockets, and Server-Sent Events</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="SystemDesign">SystemDesign</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">System Design</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-09-03 00:53:31'>2020-09-02 23:38</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Polling"><span class="toc-text">Polling:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax-Polling"><span class="toc-text">Ajax Polling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Long-Polling"><span class="toc-text">Long Polling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Issue-of-using-polling"><span class="toc-text">Issue of using polling</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Header-Overhead"><span class="toc-text">Header Overhead:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Maximal-Latency"><span class="toc-text">Maximal Latency:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Reliable-message-ordering"><span class="toc-text">Reliable message ordering</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Websockets"><span class="toc-text">Websockets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pros"><span class="toc-text">Pros</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cons"><span class="toc-text">Cons</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-Sent-Events"><span class="toc-text">Server Sent Events</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -217,15 +263,53 @@
     }
 </style>
 </div>
-            <h1 id="Welcom"><a href="#Welcom" class="headerlink" title="Welcom"></a>Welcom</h1><p>Welcom to my blog!</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Building a real-time web application is a bit challenging one, where we need to consider how we are going to send our data from the server to the client. There two general approaches: client pull or server push.</p>
+<ul>
+<li>Long/short polling (client pull)</li>
+<li>WebSockets (server push)</li>
+<li>Server-Sent Events (server push)</li>
+</ul>
+<h2 id="Polling"><a href="#Polling" class="headerlink" title="Polling:"></a>Polling:</h2><h3 id="Ajax-Polling"><a href="#Ajax-Polling" class="headerlink" title="Ajax Polling"></a>Ajax Polling</h3><p>In Ajax polling, a client makes XHR(XMLHttpRequest)/Ajax requests to server repeatedly at some regular interval to check for new data.</p>
+<p>A flow for Ajax polling will as follow.</p>
+<ul>
+<li>A client initiates requests at a small regular intervals (e.g 0.5 Seconds)</li>
+<li>The server prepares the response and sends it back to to the client just like normal HTTP requests.</li>
+</ul>
+<h3 id="Long-Polling"><a href="#Long-Polling" class="headerlink" title="Long Polling"></a>Long Polling</h3><p>Long polling is technique where the server elects to hold a client connection open for as long as possible, delivering a response only after data becomes available or timeout threshold has been reached. After receiving response client immediately sends the next request.</p>
+<h3 id="Issue-of-using-polling"><a href="#Issue-of-using-polling" class="headerlink" title="Issue of using polling"></a>Issue of using polling</h3><h5 id="Header-Overhead"><a href="#Header-Overhead" class="headerlink" title="Header Overhead:"></a>Header Overhead:</h5><p>With the HTTP long polling technique, every long<br>poll request and long poll response is a complete HTTP message and<br>thus contains a full set of HTTP headers in the message framing.<br>For small, infrequent messages, the headers can represent a large<br>percentage of the data transmitted.  If the network MTU (Maximum<br>Transmission Unit) allows all the information (including the HTTP<br>header) to fit within a single IP packet, this typically does not<br>represent a significant increase in the burden for networking<br>entities.  On the other hand, the amount of transferred data can<br>be significantly larger than the real payload carried by HTTP, and<br>this can have a significant impact (e.g., when volume-based<br>charging is in place).</p>
+<h5 id="Maximal-Latency"><a href="#Maximal-Latency" class="headerlink" title="Maximal Latency:"></a>Maximal Latency:</h5><p>After a long poll response is sent to a client, the<br>server needs to wait for the next long poll request before another<br>message can be sent to the client.  This means that while the<br>average latency of long polling is close to one network transit,<br>the maximal latency is over three network transits (long poll<br>response, next long poll request, long poll response).  However,<br>because HTTP is carried over TCP/IP, packet loss and<br>retransmission can occur; therefore, maximal latency for any<br>TCP/IP protocol will be more than three network transits </p>
+<h5 id="Reliable-message-ordering"><a href="#Reliable-message-ordering" class="headerlink" title="Reliable message ordering"></a>Reliable message ordering</h5><p>can be an issue with long polling because it is possible for multiple HTTP requests from the same client to be in flight simultaneously.</p>
+<h2 id="Websockets"><a href="#Websockets" class="headerlink" title="Websockets"></a>Websockets</h2><p>It provides a persistent connection between a client and a server that both parties can use to start sending data at any time.<br>WebSockets keeps the connection open, allowing messages to be passed back and forth between the client and the server. In this way, a two-way ongoing conversation can take place between the client and the server.</p>
+<h3 id="Pros"><a href="#Pros" class="headerlink" title="Pros"></a>Pros</h3><ul>
+<li>WebSockets keeps a unique connection open while eliminating latency problems that arise with Long Polling.</li>
+<li>WebSockets generally do not use XMLHttpRequest, and as such, headers are not sent every-time we need to get more information from the server. This, in turn, reduces the expensive data loads being sent to the server.</li>
+</ul>
+<h3 id="Cons"><a href="#Cons" class="headerlink" title="Cons"></a>Cons</h3><p>WebSockets don’t automatically recover when connections are terminated – this is something you need to implement yourself</p>
+<h2 id="Server-Sent-Events"><a href="#Server-Sent-Events" class="headerlink" title="Server Sent Events"></a>Server Sent Events</h2><p>Under SSEs the client establishes a persistent and long-term connection with the server. The server uses this connection to send data to a client. If the client wants to send data to the server, it would require the use of another technology/protocol to do so.Server-Sent Events are a one-way communication channel where events flow from server to client only. </p>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+      
+       
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -234,11 +318,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
