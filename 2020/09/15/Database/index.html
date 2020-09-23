@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ryan&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Ryan&#39;s Blog">
+  <title>Databases | Ryan&#39;s Blog</title>
+  <meta name="keywords" content=" AWS ">
+  <meta name="description" content="Databases | Ryan&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hi, welcome to my blog!">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -295,12 +295,58 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-Database" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcom"><span class="toc-text">Welcom</span></a></li></ol>
+        <h1 class="article-title">Databases</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="AWS">AWS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">AWS</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-09-22 22:23:33'>2020-09-15 21:03</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Databases"><span class="toc-text">Databases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-DB"><span class="toc-text">AWS DB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RDS"><span class="toc-text">RDS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Automated-Backups"><span class="toc-text">Automated Backups</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encryption"><span class="toc-text">Encryption</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDS-Multi-AZ"><span class="toc-text">RDS Multi-AZ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RDS-Read-Replicas"><span class="toc-text">RDS Read Replicas</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DynamoDB"><span class="toc-text">DynamoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DAX-DynamoDB-Accelerator"><span class="toc-text">DAX DynamoDB Accelerator</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redshift"><span class="toc-text">Redshift</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Back-up"><span class="toc-text">Back up</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Aurora"><span class="toc-text">Aurora</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Elasticache"><span class="toc-text">Elasticache</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DMS-data-base-migration-service"><span class="toc-text">DMS data base migration service</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -313,11 +359,117 @@
     }
 </style>
 </div>
-            <h1 id="Welcom"><a href="#Welcom" class="headerlink" title="Welcom"></a>Welcom</h1><p>Welcom to my blog!</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Databases"><a href="#Databases" class="headerlink" title="Databases"></a>Databases</h1><h2 id="AWS-DB"><a href="#AWS-DB" class="headerlink" title="AWS DB"></a>AWS DB</h2><p>RDS:</p>
+<ul>
+<li>SQL</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>Oracle</li>
+<li>Aurora</li>
+<li>MariaDB</li>
+</ul>
+<p>DyanmoDB - No SQL</p>
+<p>RedShift - OLAP</p>
+<p>Elasticache - In Memeory Caching</p>
+<h2 id="RDS"><a href="#RDS" class="headerlink" title="RDS"></a>RDS</h2><ul>
+<li><strong>RDS runs on virtual machines</strong>, <strong>not serverless</strong> (Aurora is exception)</li>
+<li>User cannot login to these operation systems</li>
+<li></li>
+</ul>
+<h3 id="Automated-Backups"><a href="#Automated-Backups" class="headerlink" title="Automated Backups"></a>Automated Backups</h3><p>There are two different types of backups for AWS:</p>
+<ol>
+<li>Automated: Are enabled by default, data is stored in S3 and are enable automatically. If you delete the DB, the backup will de belated too</li>
+<li>Database snapshots: Need to be done manually, they are kept even if you remove the DB.</li>
+</ol>
+<p>When you restore a backup or a snapshot, the restored version of the database will be in a new RDS instance, with a new DNS name</p>
+<h3 id="Encryption"><a href="#Encryption" class="headerlink" title="Encryption"></a>Encryption</h3><p>You can encrypt your Amazon RDS DB instances and snapshots at rest by enabling the encryption option on your Amazon RDS DB instances. </p>
+<h3 id="RDS-Multi-AZ"><a href="#RDS-Multi-AZ" class="headerlink" title="RDS Multi-AZ"></a>RDS Multi-AZ</h3><p>When you provision a Multi-AZ DB Instance, Amazon RDS automatically creates a primary DB Instance and synchronously replicates the data to a standby instance in a different Availability Zone.<br>If DB instance failure or avaliability zone failure, Amazon RDS will automatically failover to the standby so db operation can resume</p>
+<p>it’s for disaster recovery not for scaling.</p>
+<h3 id="RDS-Read-Replicas"><a href="#RDS-Read-Replicas" class="headerlink" title="RDS Read Replicas"></a>RDS Read Replicas</h3><ul>
+<li>This feature makes it easy to elastically scale out beyond the capacity constraints of a single DB Instance for read-heavy database workloads The read replica operates as a DB instance that allows only read-only connections</li>
+<li></li>
+<li>It’s used for scaling not for disaster recovery</li>
+<li>You need to have automatic backups on in order to have a read replica.</li>
+<li>You can have up to 5 read replicas of any DB at the time of writing.</li>
+<li>Each replica has its own DNS name.</li>
+<li>Replicas can become their own databases.</li>
+<li>You can have a replica in a second region.</li>
+<li>You can enable encryption on your replica even if your master is not.</li>
+<li>Available for MySQL, PostgreSQL, Oracle, Aurora, MariaDB</li>
+</ul>
+<h2 id="DynamoDB"><a href="#DynamoDB" class="headerlink" title="DynamoDB"></a>DynamoDB</h2><ul>
+<li>Uses SSD storage.</li>
+<li>Spread across 3 distinct data centres.</li>
+<li>Eventual Consistent Reads (Default)</li>
+<li>Strongly Consistent Reads(result reflects all writes that receivd a successful response)</li>
+<li>It’s scalable.</li>
+<li>DynamoDB can be very expensive for writes.</li>
+</ul>
+<h3 id="DAX-DynamoDB-Accelerator"><a href="#DAX-DynamoDB-Accelerator" class="headerlink" title="DAX DynamoDB Accelerator"></a>DAX DynamoDB Accelerator</h3><h2 id="Redshift"><a href="#Redshift" class="headerlink" title="Redshift"></a>Redshift</h2><p>Amazon Redshift is a fast, scalable <strong>data warehouse</strong> that makes it simple and cost-effective to analyze all your data across your data warehouse. <strong>Only avaliable in one AZ</strong></p>
+<p>Redshift stores data by colums. By storing data in columns rather than rows, the database can more precisely access the data it needs to answer a query rather than scanning and discarding unwanted data in rows. Query performance is increased for certain workloads.</p>
+<p>Columnar data stores can be compressed much more than row-based data.</p>
+<ul>
+<li><p>Single node: You can start with a single node (Up to 160Gb of ram in one node)</p>
+</li>
+<li><p>Multi-Node:</p>
+<ul>
+<li>Leader node: Manages clients and distribute queries</li>
+<li>Compute nodes: Store data and execute queries (up to 128 computer nodes max)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Back-up"><a href="#Back-up" class="headerlink" title="Back up"></a>Back up</h3><ul>
+<li>Enabled by default with a 1 day retention period</li>
+<li>Maximum retention period is 35 days</li>
+<li>Always attempts to maintain at least 3 copies of your data.(original and replica on the compute nodes and a backup in S3)</li>
+<li>Redshift can asynchronously replicate snapshots to S3 in another region for disaster recovery</li>
+</ul>
+<h2 id="Aurora"><a href="#Aurora" class="headerlink" title="Aurora"></a>Aurora</h2><ul>
+<li><p>2 copies of your data are contained in each availability zone with minimum of 3 avaliability zone. 6 copies of data</p>
+</li>
+<li><p>Aurora snapshot can share with other AWS accounts</p>
+</li>
+<li><p>3 typs of relicas avaliable, Aurora, MySQL and PostgresQL</p>
+</li>
+<li><p>Aurora has automated backups turned on by default.</p>
+</li>
+<li><p>Aurora serverless</p>
+<ul>
+<li>Aurora serverless provides a relatively simple and cost effective option for infrequent, intermittent or unpredictable workloads</li>
+</ul>
+</li>
+</ul>
+<h2 id="Elasticache"><a href="#Elasticache" class="headerlink" title="Elasticache"></a>Elasticache</h2><p>Types of Elasticache:</p>
+<ul>
+<li>Memcached</li>
+<li>Redis: In memory key-value store</li>
+</ul>
+<h2 id="DMS-data-base-migration-service"><a href="#DMS-data-base-migration-service" class="headerlink" title="DMS data base migration service"></a>DMS data base migration service</h2><ul>
+<li>Allow migrate db from one source to SWS</li>
+<li>you can do homogenous migration(Same DB) or heterogenous(Different DB) migration</li>
+<li>Source can be on premises, or inside SWS or another cloud provider such as Azure</li>
+<li>AWS SCT(schema conversion tool) for heterogenous migration</li>
+</ul>
 
-        </article>
-        
-        
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -326,11 +478,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>

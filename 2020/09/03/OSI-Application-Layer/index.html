@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ryan&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Ryan&#39;s Blog">
+  <title>OSI-Application Layer | Ryan&#39;s Blog</title>
+  <meta name="keywords" content=" TCP UPD ApplicationLayer ">
+  <meta name="description" content="OSI-Application Layer | Ryan&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hi, welcome to my blog!">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -295,12 +295,58 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-OSI-Application-Layer" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcom"><span class="toc-text">Welcom</span></a></li></ol>
+        <h1 class="article-title">OSI-Application Layer</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Networking">Networking</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">TCP UPD ApplicationLayer</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-09-22 22:23:33'>2020-09-03 01:10</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Application-Layer"><span class="toc-text">Application Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hypertext-transfer-protocol-HTTP"><span class="toc-text">Hypertext transfer protocol (HTTP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tranportation-Layer"><span class="toc-text">Tranportation Layer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-Transmission-control-protocol"><span class="toc-text">TCP Transmission control protocol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UDP-User-datagram-protocol"><span class="toc-text">UDP User datagram protocol</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -313,11 +359,43 @@
     }
 </style>
 </div>
-            <h1 id="Welcom"><a href="#Welcom" class="headerlink" title="Welcom"></a>Welcom</h1><p>Welcom to my blog!</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/images/OSI.png" alt="OSI"></p>
+<h1 id="Application-Layer"><a href="#Application-Layer" class="headerlink" title="Application Layer"></a>Application Layer</h1><h2 id="Hypertext-transfer-protocol-HTTP"><a href="#Hypertext-transfer-protocol-HTTP" class="headerlink" title="Hypertext transfer protocol (HTTP)"></a>Hypertext transfer protocol (HTTP)</h2><p>HTTP is a method for encoding and transporting data between a client and a server. It is a request/response protocol: clients issue requests and servers issue responses with relevant content and completion status info about the request. HTTP is self-contained, allowing requests and responses to flow through many intermediate routers and servers that perform load balancing, caching, encryption, and compression.</p>
+<p>HTTP is an application layer protocol relying on lower-level protocols such as <strong>TCP</strong> and <strong>UDP</strong>.</p>
+<h2 id="Tranportation-Layer"><a href="#Tranportation-Layer" class="headerlink" title="Tranportation Layer"></a>Tranportation Layer</h2><h3 id="TCP-Transmission-control-protocol"><a href="#TCP-Transmission-control-protocol" class="headerlink" title="TCP Transmission control protocol"></a>TCP Transmission control protocol</h3><p>TCP is a <strong>connection-oriented</strong> protocol over an IP network. All packets sent are <strong>guaranteed to reach the destination in the original order and without corruption</strong> through:</p>
+<ul>
+<li>Sequence numbers and checksum fields for each packet</li>
+<li>Acknowledgement packets and automatic retransmission</li>
+</ul>
+<p>If the sender does not receive a correct response, it will resend the packets. If there are multiple timeouts, the connection is dropped. TCP also implements flow control and congestion control. These guarantees cause delays and generally result in less efficient transmission than UDP.</p>
+<p>TCP is useful for applications that <strong>require high reliability but are less time critical</strong></p>
+<h3 id="UDP-User-datagram-protocol"><a href="#UDP-User-datagram-protocol" class="headerlink" title="UDP User datagram protocol"></a>UDP User datagram protocol</h3><p>UDP is connectionless. Datagrams (analogous to packets) are guaranteed only at the datagram level. Datagrams might reach their destination out of order or not at all. UDP does not support congestion control. Without the guarantees that TCP support, UDP is generally more efficient.</p>
+<p>Use UDP over TCP when:</p>
+<ul>
+<li>You need the lowest latency</li>
+<li>Late data is worse than loss of data</li>
+<li>You want to implement your own error correction</li>
+</ul>
 
-        </article>
-        
-        
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -326,11 +404,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ryan&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Ryan&#39;s Blog">
+  <title>Oauth2 | Ryan&#39;s Blog</title>
+  <meta name="keywords" content=" Oauth2 ">
+  <meta name="description" content="Oauth2 | Ryan&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hi, welcome to my blog!">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -295,12 +295,58 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-Oauth2" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Welcom"><span class="toc-text">Welcom</span></a></li></ol>
+        <h1 class="article-title">Oauth2</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Network">Network</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">Oauth2</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-09-22 22:23:33'>2020-09-12 11:40</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Oauth2"><span class="toc-text">Oauth2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Roles"><span class="toc-text">Roles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Protocol-Flow"><span class="toc-text">Protocol Flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-Registration"><span class="toc-text">Application Registration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Authorization-Grant"><span class="toc-text">Authorization Grant</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -313,11 +359,54 @@
     }
 </style>
 </div>
-            <h1 id="Welcom"><a href="#Welcom" class="headerlink" title="Welcom"></a>Welcom</h1><p>Welcom to my blog!</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Oauth2"><a href="#Oauth2" class="headerlink" title="Oauth2"></a>Oauth2</h1><h2 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h2><ul>
+<li>Resource Owner: User</li>
+<li>Client: Application The client is the application that wants to access the user’s account. Before it may do so, it must be authorized by the user, and the authorization must be validated by the API.</li>
+<li>Resource Server: hosts the protected user account informations</li>
+<li>Authorization Server: verifies the identity of the user then issues access tokens to the application.</li>
+</ul>
+<p>Example: Resource Owner(me) want to login to RubyChina(client) use my github account(Resource and Authorization server)</p>
+<h2 id="Protocol-Flow"><a href="#Protocol-Flow" class="headerlink" title="Protocol Flow"></a>Protocol Flow</h2><p><img src="/images/Oauth2_flow.png" alt="Protocol flow"></p>
+<h2 id="Application-Registration"><a href="#Application-Registration" class="headerlink" title="Application Registration"></a>Application Registration</h2><p>Before Application(client) want to use Oauth2, must register application with the service. This is done through a registration form in the “developer” or “API” portion of the service’s website, where you will provide the following information (and probably details about your application):</p>
+<ul>
+<li>Application Name</li>
+<li>Application Website</li>
+<li>Redirect URI or Callback URL</li>
+</ul>
+<p>When App is registered, service will assign </p>
+<ul>
+<li>Client ID </li>
+<li>Client Secret</li>
+</ul>
+<p>to Application.The Client ID is a publicly exposed string that is used by the service API to identify the application, and is also used to build authorization URLs that are presented to users. The Client Secret is used to authenticate the identity of the application to the service API when the application requests to access a user’s account, and must be kept private between the application and the API.</p>
+<h2 id="Authorization-Grant"><a href="#Authorization-Grant" class="headerlink" title="Authorization Grant"></a>Authorization Grant</h2><p>In the Abstract Protocol Flow above, the first four steps cover obtaining an authorization grant and access token. The authorization grant type depends on the method used by the application to request authorization, and the grant types supported by the API. OAuth 2 defines four grant types, each of which is useful in different cases:</p>
+<ul>
+<li>Authorization Code: used with server-side Applications</li>
+<li>Implicit: used with Mobile Apps or Web Applications (applications that run on the user’s device)</li>
+<li>Resource Owner Password Credentials: used with trusted Applications, such as those owned by the service itself</li>
+<li>Client Credentials: used with Applications API access</li>
+</ul>
+<p>More details about grant type can be find<br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#authorization-grant">https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2#authorization-grant</a></p>
 
-        </article>
-        
-        
+      
+       
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -326,11 +415,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>

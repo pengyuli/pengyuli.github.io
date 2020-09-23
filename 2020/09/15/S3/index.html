@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>about | Ryan&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="about | Ryan&#39;s Blog">
+  <title>S3 | Ryan&#39;s Blog</title>
+  <meta name="keywords" content=" AWS ">
+  <meta name="description" content="S3 | Ryan&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Hi, welcome to my blog!">
 <meta property="og:type" content="website">
@@ -297,19 +297,34 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-S3" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">about</h1>
+        <h1 class="article-title">S3</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="AWS">AWS</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">AWS</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-09-03 00:53:31'>2020-09-03 00:44</time>
+            Created At : <time class="date" title='Updated At: 2020-09-22 22:23:33'>2020-09-15 21:03</time>
         
     </div>
     <div class="article-meta">
@@ -331,7 +346,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#S3-and-CDN"><span class="toc-text">S3 and CDN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Key-Fundamentals-of-S3"><span class="toc-text">Key Fundamentals of S3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Consistency-For-S3"><span class="toc-text">Data Consistency For S3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-storage-classes"><span class="toc-text">S3 storage classes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Encryption"><span class="toc-text">S3 Encryption</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Encryption-in-Transit-is-achieved-by-SSL-TLS"><span class="toc-text">Encryption in Transit is achieved by SSL&#x2F;TLS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Encryption-At-Rest-Servicer-Side"><span class="toc-text">Encryption At Rest(Servicer Side)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Versioning"><span class="toc-text">S3 Versioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-Performance"><span class="toc-text">S3 Performance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S3-select-amp-Glacier-select"><span class="toc-text">S3 select &amp; Glacier select</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AWS-Organization"><span class="toc-text">AWS Organization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Share-S3-bucket-accross-accounts"><span class="toc-text">Share S3 bucket accross accounts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cross-Region-Replication"><span class="toc-text">Cross Region Replication</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CloudFront"><span class="toc-text">CloudFront</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Edge-Locations"><span class="toc-text">Edge Locations</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Origin"><span class="toc-text">Origin</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Distribution"><span class="toc-text">Distribution</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Signed-URL-Cookies"><span class="toc-text">Signed URL&#x2F;Cookies</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Athena-amp-Macie"><span class="toc-text">Athena &amp; Macie</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Athena"><span class="toc-text">Athena</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Macie"><span class="toc-text">Macie</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SnowBall"><span class="toc-text">SnowBall</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -347,7 +362,112 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Hi, welcome to my blog!</p>
+        <h1 id="S3-and-CDN"><a href="#S3-and-CDN" class="headerlink" title="S3 and CDN"></a>S3 and CDN</h1><ul>
+<li>provides key-value based <strong>object storage</strong> with <strong>unlimited storage</strong>, each file can be from <strong>0 Byte to 5TB</strong></li>
+<li>Files are store in <strong>Bucket</strong>, S3 bucket names are globally unique namespace</li>
+<li><strong>durable, highly available, and infinitely scalable</strong> data storage infrastructure at very low costs.</li>
+<li>Have MFA Delete function</li>
+</ul>
+<h3 id="Key-Fundamentals-of-S3"><a href="#Key-Fundamentals-of-S3" class="headerlink" title="Key Fundamentals of S3"></a>Key Fundamentals of S3</h3><ul>
+<li>Key (name of the object)</li>
+<li>Value (data)</li>
+<li>Version ID</li>
+<li>Metadata</li>
+<li>Subresources<ul>
+<li>Access Control List</li>
+<li>Torrent     </li>
+</ul>
+</li>
+</ul>
+<h2 id="Data-Consistency-For-S3"><a href="#Data-Consistency-For-S3" class="headerlink" title="Data Consistency For S3"></a>Data Consistency For S3</h2><ul>
+<li>Read after right consistency for puts of new objects.</li>
+<li>Eventual COnsistency for overwites (PUTS, DELETES)</li>
+</ul>
+<h3 id="S3-storage-classes"><a href="#S3-storage-classes" class="headerlink" title="S3 storage classes"></a>S3 storage classes</h3><ol>
+<li>S3 Standard </li>
+<li>S3 Standard-Infrequent Access (S3 Standard-IA)<ul>
+<li>optimized for long-lived and less frequently accessed data</li>
+</ul>
+</li>
+<li>S3 One Zone-Infrequent Access (S3 One Zone-IA) <ul>
+<li>stores data in a single AZ</li>
+</ul>
+</li>
+<li>S3 Intelligent Tiering<ul>
+<li>Designed to optimized costs by automatically moving data to most cost-effective tier</li>
+</ul>
+</li>
+<li>S3 Glacier <ul>
+<li>suitable for low cost data archiving, where data access is infrequent</li>
+<li>Retrieval times can be config from minutes to hours</li>
+</ul>
+</li>
+<li>S3 Glacier Deep Archive (S3 Glacier Deep Archive) <ul>
+<li>provides lowest cost data archiving, where data access is infrequent</li>
+<li>provides retrieval time of several (12-48) hours</li>
+</ul>
+</li>
+</ol>
+<h3 id="S3-Encryption"><a href="#S3-Encryption" class="headerlink" title="S3 Encryption"></a>S3 Encryption</h3><h5 id="Encryption-in-Transit-is-achieved-by-SSL-TLS"><a href="#Encryption-in-Transit-is-achieved-by-SSL-TLS" class="headerlink" title="Encryption in Transit is achieved by SSL/TLS"></a>Encryption in Transit is achieved by SSL/TLS</h5><h5 id="Encryption-At-Rest-Servicer-Side"><a href="#Encryption-At-Rest-Servicer-Side" class="headerlink" title="Encryption At Rest(Servicer Side)"></a>Encryption At Rest(Servicer Side)</h5><ul>
+<li>SSE-S3 – encrypts S3 objects using keys handled &amp; managed by AWS</li>
+<li>SSE-KMS – leverage AWS Key Management Service to manage encryption keys. KMS provides control and audit trail over the keys.</li>
+<li>SSE-C – when you want to manage your own encryption keys. AWS does not store the encryption key. Requires HTTPS.</li>
+</ul>
+<h3 id="S3-Versioning"><a href="#S3-Versioning" class="headerlink" title="S3 Versioning"></a>S3 Versioning</h3><ul>
+<li>S3 stores all versions of an object (include all writes and even if you delete the object)</li>
+<li>once enabled, versioning cannot be disabled only suspended</li>
+<li>Ingegrates with Lifecycle rules</li>
+</ul>
+<h3 id="S3-Performance"><a href="#S3-Performance" class="headerlink" title="S3 Performance"></a>S3 Performance</h3><ul>
+<li>Prefix: s3Name/prefix/filename.  mytests3/folder1/folder2/abc.jpg Prefix is folder1/folder2</li>
+<li>S3 achieve 3500 PUT/COPY/POST/DELETE and 5500 GET/HEAD request per second per <strong>prefix</strong></li>
+<li>If encrypt with KMS, KMS will have limitation on request number/<strong>region</strong></li>
+</ul>
+<h3 id="S3-select-amp-Glacier-select"><a href="#S3-select-amp-Glacier-select" class="headerlink" title="S3 select &amp; Glacier select"></a>S3 select &amp; Glacier select</h3><ul>
+<li><strong>S3 select</strong> enables your applications to retrieve only a subset of data from an object by using simple SQL expressions. –&gt; Performance increase</li>
+<li>Get data by rows or columns using SQL , save money on data transfer and increase speed</li>
+</ul>
+<h4 id="AWS-Organization"><a href="#AWS-Organization" class="headerlink" title="AWS Organization"></a>AWS Organization</h4><p>AWS Organization is an account management service that enables you consolidate multiple AWS accounts into an organization that you create and centrally manage</p>
+<p>Best Practice:</p>
+<ul>
+<li>always enable mult factor authentication on the root account </li>
+<li>always use a strong and complex password on the root account </li>
+<li>The paying account should be used for billing purposes only do not deploy resources into the paying account and the paying account is simply the root account or master account</li>
+</ul>
+<h4 id="Share-S3-bucket-accross-accounts"><a href="#Share-S3-bucket-accross-accounts" class="headerlink" title="Share S3 bucket accross accounts"></a>Share S3 bucket accross accounts</h4><ol>
+<li>Using Bucket Policies and IAM(Apply to entire bucket and Programmatic access only)</li>
+<li>Using Bucket ACLs and IAM(object level and Programmatic access only)</li>
+<li>Cross account IAM roles</li>
+</ol>
+<h4 id="Cross-Region-Replication"><a href="#Cross-Region-Replication" class="headerlink" title="Cross Region Replication"></a>Cross Region Replication</h4><ol>
+<li>Versioning must be enable on both source and target buckets</li>
+<li>File in an existing bucket not auto replicated, new updated files will be auto replicated</li>
+<li>Delete markers not replicated, deleting individual versions will not replicated</li>
+</ol>
+<h1 id="CloudFront"><a href="#CloudFront" class="headerlink" title="CloudFront"></a>CloudFront</h1><p>Amazon CloudFront is a content delivery network offered by Amazon Web Services. Content delivery networks provide a globally-distributed network of proxy servers which cache content, such as web videos or other bulky media, more locally to consumers, thus improving access speed for downloading the content.</p>
+<h6 id="Edge-Locations"><a href="#Edge-Locations" class="headerlink" title="Edge Locations"></a>Edge Locations</h6><p>This is the location where content will be cached</p>
+<h6 id="Origin"><a href="#Origin" class="headerlink" title="Origin"></a>Origin</h6><p>This is the origin of all files that the CDN will distribte</p>
+<h6 id="Distribution"><a href="#Distribution" class="headerlink" title="Distribution"></a>Distribution</h6><p>Distribution: Is the name AWS calls CDN’s.</p>
+<ul>
+<li><strong>Web</strong> distribution is for generic web contents </li>
+<li><strong>RTMP</strong> distribution is for video streaming</li>
+</ul>
+<h3 id="Signed-URL-Cookies"><a href="#Signed-URL-Cookies" class="headerlink" title="Signed URL/Cookies"></a>Signed URL/Cookies</h3><ul>
+<li>Use signed URL/Cookies whe you want to secure the content so only the people you authorize are able to access it</li>
+<li>Signed URL is for individual file</li>
+<li>Signed Cookies is for multiple files</li>
+</ul>
+<h1 id="Athena-amp-Macie"><a href="#Athena-amp-Macie" class="headerlink" title="Athena &amp; Macie"></a>Athena &amp; Macie</h1><h2 id="Athena"><a href="#Athena" class="headerlink" title="Athena"></a>Athena</h2><ul>
+<li>Athena is an interactive query service</li>
+<li>allow to query data in S3 using SQL</li>
+<li>serverless</li>
+<li>Commonly used to analyse log data in S3</li>
+</ul>
+<h2 id="Macie"><a href="#Macie" class="headerlink" title="Macie"></a>Macie</h2><ul>
+<li>Use AI to analyze data in S3 and identify PII</li>
+<li>includes dashboards, reports and laerting</li>
+</ul>
+<h1 id="SnowBall"><a href="#SnowBall" class="headerlink" title="SnowBall"></a>SnowBall</h1><p>Snowball is (an appliance) a petabyte-scale data transport solution that uses devices designed to be secure to transfer large amounts of data into and out of the AWS Cloud</p>
 
       
        
